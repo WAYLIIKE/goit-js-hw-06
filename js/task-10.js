@@ -21,14 +21,15 @@ destroyBtn.addEventListener("click", destroyBoxes);
 
 function createBoxes(amount) {
   mainDiv.innerHTML = "";
+  const divs = [];
   for (let i = 0; i < amount * 10; i += 10) {
-    let color = getRandomHexColor();
-    let div = document.createElement("div");
+    const div = document.createElement("div");
     div.style.width = 30 + i + "px";
     div.style.height = 30 + i + "px";
-    div.style.backgroundColor = color;
-    mainDiv.append(div);
+    div.style.backgroundColor = getRandomHexColor();
+    divs.push(div);
   }
+  mainDiv.append(...divs);
 }
 
 function destroyBoxes() {
